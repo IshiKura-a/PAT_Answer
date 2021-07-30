@@ -17,8 +17,8 @@ int main() {
         sum /= 10;
     }
 
-    for(auto it = res.rbegin(); it != res.rend(); it++) {
-        if(it != res.rbegin()) std::cout << ' ';
+    for (auto it = res.rbegin(); it != res.rend(); it++) {
+        if (it != res.rbegin()) std::cout << ' ';
         std::cout << *it;
     }
 

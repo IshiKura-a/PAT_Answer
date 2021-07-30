@@ -35,6 +35,6 @@ bool judge(const std::string &s) {
                 return false;
         }
     }
-    if(n.size() != 3) return false;
+    if (n.size() != 3) return false;
     return n[2] == n[0] * n[1] && n[1] > 0;
 }
