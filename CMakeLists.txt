@@ -6,6 +6,6 @@ set (CMAKE_CXX_FLAGS -g)
 set (CMAKE_BUILD_TYPE Debug)
 
 
-add_executable(PAT_Answer 1091.cpp)
+add_executable(PAT_Answer Advanced/1145.cpp)
 
 target_link_libraries(PAT_Answer)
