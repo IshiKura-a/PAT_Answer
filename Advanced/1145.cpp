@@ -10,7 +10,7 @@ bool isPrime(int n) {
     if (n == 2) return true;
     if (n % 2 == 0) return false;
     int i;
-    for (i = 3; i <= sqrt(n); i++) {
+    for (i = 3; i <= sqrt(n); i += 2) {
         if (n % i == 0) return false;
     }
     return true;
@@ -34,20 +34,19 @@ int quadraticProbing(int n) {
 }
 
 int hashF(int val) {
-    if (!hash[val % MSize]) return val % MSize;
-    else return quadraticProbing(val % MSize);
+    int i;
+    for (i = 0; i < MSize; i++) {
+        if (!hash[(val + i * i) % MSize]) return (val + i * i) % MSize;
+    }
+    return -1;
 }
 
 int find(int val) {
-    if (hash[val % MSize] == val) return 1;
-    else {
-        int i = 1;
-        while ((val + i * i) % MSize != val % MSize) {
-            if (hash[(val + i * i) % MSize] == val) return i+1;
-            i++;
-        }
-        return i-1;
+    int i;
+    for (i = 0; i < MSize; i++) {
+        if (hash[(val + i * i) % MSize] == val || !hash[(val + i * i) % MSize]) return i + 1;
     }
+    return i + 1;
 }
 
 int main() {
